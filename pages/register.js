@@ -16,7 +16,8 @@ export default function Register() {
     phone: '',
     password: '',
     confirmPassword: '',
-    role: 'customer'
+    role: 'customer',
+    secretKey: ''
   })
   const [error, setError] = useState('')
   const [success, setSuccess] = useState('')
@@ -44,6 +45,13 @@ export default function Register() {
 
     if (formData.password.length < 6) {
       setError('Password must be at least 6 characters long')
+      setLoading(false)
+      return
+    }
+
+    // Validate secret key for owner registration
+    if (formData.role === 'owner' && formData.secretKey !== '3234042') {
+      setError('Invalid secret key for owner registration')
       setLoading(false)
       return
     }
@@ -128,7 +136,24 @@ export default function Register() {
                     Developer accounts require owner approval before activation.
                   </p>
                 )}
+                {formData.role === 'owner' && (
+                  <p className="text-sm text-[var(--text-secondary)] mt-1">
+                    Owner registration requires a secret key.
+                  </p>
+                )}
               </div>
+
+              {formData.role === 'owner' && (
+                <Input
+                  label="Secret Key"
+                  id="secretKey"
+                  type="password"
+                  value={formData.secretKey}
+                  onChange={(e) => setFormData(prev => ({ ...prev, secretKey: e.target.value }))}
+                  placeholder="Enter secret key"
+                  required
+                />
+              )}
 
               <Input
                 label="Password"
