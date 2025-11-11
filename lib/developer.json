@@ -1,0 +1,26 @@
+[
+  {
+    "id": 4,
+    "email": "alice@techlearners.com",
+    "password": "dev123",
+    "name": "Alice Dev",
+    "role": "developer",
+    "phone": "123-456-7893"
+  },
+  {
+    "id": 5,
+    "email": "bob@techlearners.com",
+    "password": "dev123",
+    "name": "Bob Code",
+    "role": "developer",
+    "phone": "123-456-7894"
+  },
+  {
+    "id": 6,
+    "email": "charlie@techlearners.com",
+    "password": "dev123",
+    "name": "Charlie Tech",
+    "role": "developer",
+    "phone": "123-456-7895"
+  }
+]

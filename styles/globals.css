@@ -1,0 +1,115 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root{
+  --bg: #F7F9FC;
+  --card: #FFFFFF;
+  --text: #0B132B;
+  --text-secondary: #4A5568;
+  --accent: #245DFF;
+  --cyan: #16BFAF;
+  --border: rgba(0,0,0,0.08);
+}
+
+.dark{
+  --bg: #0B132B;
+  --card: #1C2541;
+  --text: #FFFFFF;
+  --text-secondary: #C7D3E3;
+  --accent: #3A86FF;
+  --cyan: #19E6C1;
+  --border: rgba(255,255,255,0.08);
+}
+
+.dark .border-gray-800 {
+  border-color: #374151;
+}
+
+.light .border-gray-800 {
+  border-color: #bdbec1;
+}
+
+html{
+  scroll-behavior: smooth;
+}
+
+html,body,#__next{
+  height:100%;
+}
+
+body{
+  background-color:var(--bg);
+  color: var(--text);
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Custom animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.6s ease-out forwards;
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.8s ease-out forwards;
+}
+
+/* Gradient text */
+.gradient-text {
+  background: linear-gradient(135deg, #FFFFFF 0%, #E5E7EB 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--card);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--accent);
+}
+
+/* Focus styles */
+.focus-ring:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px var(--accent);
+}
+
+/* Responsive container (keeping for backward compatibility) */
+.container{
+  max-width:1120px;
+  margin:0 auto;
+  padding:2rem;
+}
